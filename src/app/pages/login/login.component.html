@@ -1,0 +1,19 @@
+<div class="container">
+  <div>
+    <img src="../../../assets/images/logo-login.png" />
+  </div>
+  <div>
+    <form [formGroup]="loginForm" nz-form class="form">
+      <label for="">E-mail </label>
+      <input
+        nz-input
+        type="text"
+        placeholder="Digite o e-mail de acesso"
+        formControlName="email"
+      />
+      <label for="">Senha</label>
+      <input nz-input type="password" formControlName="password" />
+      <button type="submit">Entrar</button>
+    </form>
+  </div>
+</div>

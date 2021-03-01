@@ -1,0 +1,101 @@
+<nz-modal
+  [(nzVisible)]="isVisible"
+  [nzTitle]="titleModal"
+  (nzOnCancel)="handleCancel()"
+>
+  <form
+    nz-form
+    [nzLayout]="'vertical'"
+    [formGroup]="userForm"
+    (ngSubmit)="handleSubmit()"
+  >
+    <nz-form-item class="form-modal">
+      <nz-form-label [nzSpan]="12" nzFor="name">Nome</nz-form-label>
+      <nz-form-control>
+        <input
+          formControlName="name"
+          nz-input
+          name="name"
+          type="text"
+          id="name"
+        />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="12" nzFor="email">E-mail</nz-form-label>
+      <nz-form-control>
+        <input
+          formControlName="email"
+          nz-input
+          name="email"
+          type="email"
+          id="email"
+        />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="12" nzFor="phone">Telefone</nz-form-label>
+      <nz-form-control>
+        <input
+          formControlName="phone"
+          nz-input
+          name="phone"
+          type="phone"
+          id="phone"
+        />
+      </nz-form-control>
+    </nz-form-item>
+    <div *nzModalFooter></div>
+    <button
+      type="submit"
+      [disabled]="!userForm.valid"
+      class="button"
+      nz-button
+      nzType="primary"
+    >
+      {{ titleButton }}
+    </button>
+  </form>
+</nz-modal>
+
+<div class="box-input-filter">
+  <div class="input-filter">
+    <nz-input-group [nzSuffix]="suffixIconSearch">
+      <input
+        [formControl]="filter"
+        type="text"
+        nz-input
+        placeholder="Pesquisar..."
+      />
+    </nz-input-group>
+    <ng-template #suffixIconSearch>
+      <i nz-icon nzType="search"></i>
+    </ng-template>
+  </div>
+  <div>
+    <button nz-button nzType="primary" (click)="newUser()">Novo</button>
+  </div>
+</div>
+
+<nz-table #basicTable [nzData]="usersFiltered" [nzPageSize]="5">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>E-mail</th>
+      <th>Telefone</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of basicTable.data">
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.phone }}</td>
+      <td>
+        <img src="assets/images/edit.svg" (click)="editUser(user)" />
+        <nz-divider nzType="vertical"></nz-divider>
+        <img src="assets/images/delete.svg" />
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

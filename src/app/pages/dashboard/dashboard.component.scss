@@ -1,0 +1,96 @@
+:host {
+  display: flex;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.active-link {
+  background-color: #084B9B !important;
+}
+
+.app-layout {
+  height: 100vh;
+}
+
+.sidebar {
+  height: 100%;
+  background: #2A6BB9 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+
+.menu, .menu li {
+  background-color: #2A6BB9;
+}
+
+.menu li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 2px;
+  margin-bottom: 0;
+}
+
+.menu li a {
+  font-size: 14px;
+  text-align: left;
+  color: #FFFFFF;
+}
+
+.menu li:hover {
+  background-color: #084B9B;
+}
+
+.menu li img {
+  margin-right: 10px;
+}
+
+.header-trigger {
+  height: 64px;
+  padding: 20px 24px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all .3s,padding 0s;
+}
+
+.trigger:hover {
+  color: #1890ff;
+}
+
+.sidebar-logo {
+  position: relative;
+  height: 64px;
+  padding-left: 5px;
+  overflow: hidden;
+  line-height: 64px;
+  transition: all .3s;
+}
+
+.sidebar-logo img {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+nz-header {
+  padding: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.app-header {
+  position: relative;
+  height: 64px;
+  padding: 0;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0,21,41,.08);
+}
+
+nz-content {
+  margin: 24px;
+}
+
+.inner-content {
+  padding: 24px;
+  background: #fff;
+  height: 100%;
+}
